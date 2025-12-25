@@ -1,9 +1,9 @@
 import { type FC } from "react";
 import { Container, Divider, Box } from "@mui/material";
-import NewsHeader from "../components/header";
-import NewsGrid from "../components/newsGrid";
+import NewsHeader from "../components/NewsHeader";
+import NewsGrid from "../components/NewsGrid";
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   return (
     <Container maxWidth="xl">
       <Box sx={{ py: 4 }}>
@@ -14,4 +14,4 @@ const Home: FC = () => {
     </Container>
   );
 };
-export default Home;
+export default HomePage;

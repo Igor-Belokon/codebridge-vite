@@ -1,15 +1,16 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import ArticlePage from "./pages/ArticlePage";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/article/:id" element={<ArticlePage />} />
+        <Route index path="/articles" element={<HomePage />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route path="*" element={<Navigate to="/articles" />} />
       </Routes>
     </>
   );

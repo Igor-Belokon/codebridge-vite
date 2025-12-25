@@ -1,16 +1,16 @@
 import { Typography, TextField, InputAdornment, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNews } from "../context/NewsContext";
+import { useNews } from "../hooks/useNews";
 import { searchArticles } from "../utils/searchRank";
 
-export default function NewsHeader() {
+const NewsHeader = () => {
   const { state, dispatch } = useNews();
 
   const results = searchArticles(state.articles, state.search).length;
 
   return (
     <Stack alignItems="start">
-      <Typography variant="body2" sx={{ mb: 1, fontWeight: 500 }}>
+      <Typography variant="body2" sx={{ mb: 1, fontWeight: 600 }}>
         Filter by keywords
       </Typography>
 
@@ -36,9 +36,11 @@ export default function NewsHeader() {
         }}
       />
 
-      <Typography variant="body2" sx={{ mt: 3, fontWeight: 500 }}>
+      <Typography variant="body2" sx={{ mt: 3, fontWeight: 600 }}>
         Results: {results}
       </Typography>
     </Stack>
   );
-}
+};
+
+export default NewsHeader;
