@@ -2,13 +2,12 @@ import { Box } from "@mui/material";
 import NewsCard from "./card";
 import type { FC } from "react";
 import { useNews } from "../context/NewsContext";
+import { searchArticles } from "../utils/searchRank";
 
 const NewsGrid: FC = () => {
   const { state } = useNews();
 
-  const articles = state.articles.filter((a) =>
-    a.title.toLowerCase().includes(state.search.toLowerCase())
-  );
+  const articles = searchArticles(state.articles, state.search);
 
   return (
     <Box

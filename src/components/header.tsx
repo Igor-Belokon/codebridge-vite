@@ -1,13 +1,12 @@
 import { Typography, TextField, InputAdornment, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNews } from "../context/NewsContext";
+import { searchArticles } from "../utils/searchRank";
 
 export default function NewsHeader() {
   const { state, dispatch } = useNews();
 
-  const results = state.articles.filter((a) =>
-    a.title.toLowerCase().includes(state.search.toLowerCase())
-  ).length;
+  const results = searchArticles(state.articles, state.search).length;
 
   return (
     <Stack alignItems="start">
